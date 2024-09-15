@@ -14,11 +14,11 @@ const { title, description, ogImage } = Astro.props;
 		<meta property="og:image" content={ogImage.src} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<main>
+	<body class="flex flex-col min-h-screen bg-black">
+		<main class="flex-grow">
 			<article class="prose">
 				<a href="/">Powrót do głównej strony</a>
-				<slot />
+				<slot class="text-white"/>
 			</article>
 		</main>
 	</body>
