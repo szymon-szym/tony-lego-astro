@@ -1,12 +1,29 @@
 ---
 import "@assets/styles/global.css";
 import PageLayout from "@layouts/PageLayout.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
 ---
 
 <PageLayout>
-	<div class="flex flex-col text-blue-600">
-		<a href="/admin">CMS</a>
-		<a href="/admin/config.yml">CMS Config</a>
-		<a href="/blog/seed">Seed Post</a>
+	<div class="bg-gray-300 mb-4 p-3">
+		Tony Lego 
 	</div>
+	<img alt="kid playing lego" src="src/assets/img/placeholder.jpg"/>
+	<div>
+		Witaj na mojej stronie, gdzie dzielę się pasją do klocków
+	</div>
+	<h2>Ostatnie wpisy</h2>
+	<ul>
+		{allPosts.map((post) => (
+			<li>
+				<a href={"blog/" + post.slug}>{post.data.title}</a>
+				{/* <pre>{JSON.stringify(post)}</pre> */}
+			</li>
+		))}
+	</ul>
+	<!-- <div class="bg-gray-300 mb-4 p-3">
+		FOOTER
+	</div> -->
 </PageLayout>
