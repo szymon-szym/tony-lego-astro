@@ -3,64 +3,65 @@ import "@assets/styles/global.css";
 import PageLayout from "@layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import placeholder from '../assets/img/placeholder.jpg';
+import placeholder from "../assets/img/placeholder.jpg";
 
 const allPosts = await getCollection("blog");
+const sortedPosts = allPosts.sort((a, b) => a.data.date < b.data.date ? 0 : 1);
 ---
 
 <PageLayout>
 	<main class="flex-grow">
-
-	<div class="bg-black p-20">
-		<p class="m-auto w-min text-8xl text-white">Tony Lego</p>
-	</div>
-	<div class="bg-black">
-		<Image class="mx-auto rounded-full w-64 h-64" src={placeholder} alt="logo of the tony lego" />
-	</div>
-	<div class="bg-black p-6">
-		<p class="text-3xl text-white">
-			Witaj na mojej stronie, gdzie dzielę się pasją do klocków. Lorem ipsum dolor, sit amet
-			consectetur adipisicing elit. Incidunt consectetur facere, totam, voluptatibus voluptate nisi
-			rerum inventore doloremque nesciunt possimus dignissimos dolore. Molestias iure minima fuga
-			quibusdam voluptates repellat corrupti.
-		</p>
-		<p class="m-auto w-min pt-6 text-4xl text-white">Ostatnie&nbsp;wpisy</p>
-	</div>
-	<div class="flex w-full flex-row flex-wrap gap-6 bg-black p-6">
-		{
-			allPosts.map((post) => (
-				<div class="w-96 min-w-96 rounded-lg border border-gray-800 bg-gray-800 p-6 shadow dark:border-gray-700 dark:bg-gray-800">
-					<a href={"blog/" + post.slug}>
-						<h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{post.data.title}</h5>
-					</a>
-					<p class="mb-3 font-normal text-gray-100">{post.data.description}</p>
-					<a
-						href={"blog/" + post.slug}
-						class="inline-flex items-center rounded-lg border px-3 py-2 text-center text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-					>
-						Czytaj
-						<svg
-							class="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-							aria-hidden="true"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 14 10"
+		<div class="p-20">
+			<p class="m-auto w-min text-8xl text-white">Tony Lego</p>
+		</div>
+		<div>
+			<Image class="mx-auto h-64 w-64 rounded-full" src={placeholder} alt="logo of the tony lego" />
+		</div>
+		<div class="p-6">
+			<p class="text-3xl text-white">
+				Witaj na mojej stronie, gdzie dzielę się pasją do klocków. Lorem ipsum dolor, sit amet
+				consectetur adipisicing elit. Incidunt consectetur facere, totam, voluptatibus voluptate
+				nisi rerum inventore doloremque nesciunt possimus dignissimos dolore. Molestias iure minima
+				fuga quibusdam voluptates repellat corrupti.
+			</p>
+			<p class="m-auto w-min pt-6 text-4xl text-white">Ostatnie&nbsp;wpisy</p>
+		</div>
+		<div class="flex w-full flex-row flex-wrap gap-6 p-6">
+			{
+				sortedPosts.map((post) => (
+					<div class="w-96 min-w-96 rounded-lg border border-gray-800 bg-gray-800 p-6 shadow dark:border-gray-700 dark:bg-gray-800">
+						<a href={"blog/" + post.slug}>
+							<h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{post.data.title}</h5>
+						</a>
+						<p class="mb-3 font-normal text-gray-100">{post.data.description}</p>
+						<p class="mb-3 font-normal text-gray-100">{post.data.date}</p>
+						<a
+							href={"blog/" + post.slug}
+							class="inline-flex items-center rounded-lg border px-3 py-2 text-center text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 						>
-							<path
-								stroke="currentColor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M1 5h12m0 0L9 1m4 4L9 9"
-							/>
-						</svg>
-					</a>
-				</div>
-			))
-		}
-	</div>
+							Czytaj
+							<svg
+								class="ms-2 h-3.5 w-3.5 rtl:rotate-180"
+								aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 14 10"
+							>
+								<path
+									stroke="currentColor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M1 5h12m0 0L9 1m4 4L9 9"
+								/>
+							</svg>
+						</a>
+					</div>
+				))
+			}
+		</div>
 	</main>
-	<div class="py-3 flex justify-end">
-		<p class="text-white px-4">Tony Lego 2024</p>
+	<div class="flex justify-end py-3">
+		<p class="px-4 text-white">Tony Lego 2024</p>
 	</div>
 </PageLayout>

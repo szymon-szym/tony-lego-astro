@@ -16,10 +16,15 @@ const { title, description, ogImage } = Astro.props;
 	</head>
 	<body class="flex flex-col min-h-screen bg-black">
 		<main class="flex-grow">
-			<article class="prose">
+			<div class="w-max m-auto">
+				<article class="prose prose-invert p-6">
 				<a href="/">Powrót do głównej strony</a>
-				<slot class="text-white"/>
+				<slot />
 			</article>
+			</div>
 		</main>
+		<footer class="flex justify-end py-3">
+			<p class="px-4 text-white">Tony Lego 2024</p>
+		</footer>
 	</body>
 </html>
