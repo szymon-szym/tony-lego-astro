@@ -2,6 +2,8 @@
 import "@assets/styles/global.css";
 import PageLayout from "@layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import placeholder from '../assets/img/placeholder.jpg';
 
 const allPosts = await getCollection("blog");
 ---
@@ -13,7 +15,7 @@ const allPosts = await getCollection("blog");
 		<p class="m-auto w-min text-8xl text-white">Tony Lego</p>
 	</div>
 	<div class="bg-black">
-		<img class="mx-auto rounded-full" src="/src/assets/img/400.svg" alt="logo of the tony lego" />
+		<Image class="mx-auto rounded-full w-64 h-64" src={placeholder} alt="logo of the tony lego" />
 	</div>
 	<div class="bg-black p-6">
 		<p class="text-3xl text-white">
