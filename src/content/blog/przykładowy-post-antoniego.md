@@ -2,7 +2,7 @@
 title: Budka z kebabem
 date: 2024-09-25T17:27:00.000Z
 ogImage: src/assets/img/placeholder400.svg
-description: opis tego o czym jest ten wpis
+description: kebab jest pycha
 videoUrl: "1012820088"
 ---
 # Budka z kebabem
