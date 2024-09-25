@@ -3,7 +3,7 @@ import "@assets/styles/global.css";
 import PageLayout from "@layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import placeholder from "../assets/img/placeholder.jpg";
+import brics from "../assets/img/brics.jpg";
 
 const allPosts = await getCollection("blog");
 const sortedPosts = allPosts.sort((a, b) => a.data.date < b.data.date ? 0 : 1);
@@ -15,10 +15,10 @@ const sortedPosts = allPosts.sort((a, b) => a.data.date < b.data.date ? 0 : 1);
 			<p class="m-auto w-min text-8xl text-white">Tony Lego</p>
 		</div>
 		<div>
-			<Image class="mx-auto h-64 w-64 rounded-full" src={placeholder} alt="logo of the tony lego" />
+			<Image class="mx-auto h-64 w-64 rounded-full" src={brics} alt="logo of the tony lego" />
 		</div>
 		<div class="p-6">
-			<p class="text-3xl text-white">
+			<p class="text-3xl text-white m-auto max-w-fit">
 				Witaj na mojej stronie, gdzie dzielę się pasją do klocków. Pokażę Wam fajne rzeczy. Bardzo lubię Lego
 			</p>
 			<p class="m-auto w-min pt-6 text-4xl text-white">Ostatnie&nbsp;wpisy</p>
@@ -31,7 +31,7 @@ const sortedPosts = allPosts.sort((a, b) => a.data.date < b.data.date ? 0 : 1);
 							<h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{post.data.title}</h5>
 						</a>
 						<p class="mb-3 font-normal text-gray-100">{post.data.description}</p>
-						<p class="mb-3 font-normal text-gray-100">{`${post.data.date.getFullYear()}`}</p>
+						<p class="mb-3 font-normal text-gray-100">{`${post.data.date.getDate()}-${post.data.date.getMonth()+1}-${post.data.date.getFullYear()}`}</p>
 						<a
 							href={"blog/" + post.slug}
 							class="inline-flex items-center rounded-lg border px-3 py-2 text-center text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -59,6 +59,8 @@ const sortedPosts = allPosts.sort((a, b) => a.data.date < b.data.date ? 0 : 1);
 		</div>
 	</main>
 	<div class="flex justify-end py-3">
+		<p class="px-4 text-white">Photo by <a href="https://unsplash.com/@designedbyflores?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Omar Flores</a> on <a href="https://unsplash.com/photos/blue-red-and-white-artwork-lQT_bOWtysE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+		</p>
 		<p class="px-4 text-white">Tony Lego 2024</p>
 	</div>
 </PageLayout>
