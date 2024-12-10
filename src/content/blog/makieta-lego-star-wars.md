@@ -1,6 +1,7 @@
 ---
 title: Makieta Lego Star Wars
 date: 2024-12-10T17:28:00.000Z
+ogImage: src/assets/img/placeholder400.svg
 description: Bitwa Star Wars
 videoUrl: "1037880091"
 ---
