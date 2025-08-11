@@ -2,6 +2,7 @@
 title: Moja książka
 date: 2025-08-11T16:56:00.000+02:00
 description: pierwsza część książki
+videoUrl: "123456"
 ---
 
 
