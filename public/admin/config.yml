@@ -3,7 +3,7 @@ backend:
   repo: username/reponame
   branch: main
 local_backend: true
-media_folder: "public/img"
+media_folder: "src/assets/img"
 public_folder: "/img"
 
 collections:

@@ -3,8 +3,9 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "decap-server & astro dev",
-		"start": "astro dev",
+		"sync:images": "rsync -av --delete src/assets/img/ public/img/",
+		"dev": "pnpm sync:images && decap-server & astro dev",
+		"start": "pnpm sync:images && astro dev",
 		"build:tailwind": "tailwindcss -i src/assets/styles/global.css -o dist/global.css --minify",
 		"build:autoprefixer": "postcss dist/global.css -o dist/global.css",
 		"build": "astro build && pnpm run build:tailwind && pnpm run build:autoprefixer ",
