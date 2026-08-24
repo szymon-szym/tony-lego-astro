@@ -14,7 +14,7 @@ const { title, description, ogImage } = Astro.props;
 		{ogImage && <meta property="og:image" content={ogImage.src} />}
 		<title>{title}</title>
 	</head>
-	<body class="flex flex-col min-h-screen bg-black">
+	<body class="flex flex-col min-h-screen bg-tony-50">
 		<main class="flex-grow">
 			<div class="w-max m-auto">
 				<article class="prose prose-invert p-6">
@@ -24,7 +24,7 @@ const { title, description, ogImage } = Astro.props;
 			</div>
 		</main>
 		<footer class="flex justify-end py-3">
-			<p class="px-4 text-white">Tony Lego 2024</p>
+			<p class="px-4 text-tony-200">Tony Lego 2024</p>
 		</footer>
 	</body>
 </html>
