@@ -11,7 +11,7 @@ const { title, description, ogImage } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
-		<meta property="og:image" content={ogImage.src} />
+		{ogImage && <meta property="og:image" content={ogImage.src} />}
 		<title>{title}</title>
 	</head>
 	<body class="flex flex-col min-h-screen bg-black">

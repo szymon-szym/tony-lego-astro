@@ -5,6 +5,6 @@ description: opisb
 ---
 zdięcie pierwsze
 
-![](src/assets/img/1000010521.jpg)
+![](/img/1000010521.jpg)
 
 xxxx
