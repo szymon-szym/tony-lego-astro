@@ -30,8 +30,13 @@ const sortedPosts = allPosts.sort((a, b) => a.data.date - b.data.date);
 			</div>
 		</section>
 
-		<section id="wpisy" class="mx-auto max-w-6xl px-6 py-12">
-			<h2 class="mb-10 text-3xl font-bold text-tony-200">Ostatnie&nbsp;wpisy</h2>
+		<section id="wpisy" class="relative mx-auto max-w-6xl px-6 py-20">
+			<div class="absolute top-0 left-1/2 -translate-x-1/2 h-px w-32 bg-gradient-to-r from-transparent via-tony-300/40 to-transparent" />
+			<div class="mb-12 flex items-center justify-center gap-4">
+				<div class="h-px w-12 bg-tony-300/30" />
+				<h2 class="text-3xl font-bold tracking-wide text-tony-300">Ostatnie&nbsp;wpisy</h2>
+				<div class="h-px w-12 bg-tony-300/30" />
+			</div>
 			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{
 					sortedPosts.map((post) => (
