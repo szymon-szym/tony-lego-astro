@@ -16,7 +16,7 @@ const { Content } = await Astro.props.post.render();
 
 <PostLayout {title} {description} {ogImage}>
 	<div>
-		<p>{`${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`}</p>
+		<p>{date.toLocaleDateString("pl-PL", { day: "2-digit", month: "2-digit", year: "numeric" })}</p>
 	</div>
 	<div>
 		<p class="text-6xl">{title}</p>
